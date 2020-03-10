@@ -1,18 +1,25 @@
 import React, {Component} from 'react';
 import './App.css';
 
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import Rate from './Rate/Rate';
+import About from './About/About';
 
 class App extends Component {
   render() {
     return (
+              <Router>
       <div className="site">
         <Header />
           <div className="container">
             <main>
-              <Rate />
+                <Switch>
+                  <Route exact path="/" component={Rate}/>
+                  <Route exact path="/about" component={About}/>
+                </Switch>
             </main>
           </div>
 
@@ -25,6 +32,7 @@ class App extends Component {
           </div>
         <Footer />
       </div>
+              </Router>
     );
   }
 }
